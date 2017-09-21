@@ -1,0 +1,84 @@
+//为了兼容IE
+.opacity(@opacity){
+    @var:@opacity * 100;
+    filter: alpha(opacity=@var);
+    opacity: @opacity;
+}
+
+//混合 3 带参数有默认值  
+.toolbar-item(@pos,@hoverPos){
+    background-position: 0 @pos;
+     &:hover {
+            background-position: 0 @hoverPos;
+        } 
+}   
+
+@toolbar-size: 52px;
+.toolbar-item,.toolbar-layer{
+    background: url(../img/toolbar.png) no-repeat;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.toolbar {
+    position: fixed;
+    left: 50%;
+    bottom: 5px;
+    margin-left: - @toolbar-size / 2;
+}
+
+.toolbar-item {
+    position: relative;
+    cursor: pointer;
+    width: @toolbar-size;
+    height: @toolbar-size;
+    /*background: pink;*/
+    margin: 10px 0;
+    display: block;
+    .transition(background-position 1s);
+    
+    &:hover {
+        .toolbar-layer {
+            .opacity(1);
+            .scale(1);
+        }
+    }
+}
+
+.toolbar-item-weixin {
+    .toolbar-item(-798px,-860px);
+    
+    .toolbar-layer {
+        height: 212px;
+        background-position: 0 0;
+    }
+}
+
+.toolbar-item-feedback {
+    .toolbar-item(-426px,-488px);
+}
+
+.toolbar-item-app {
+    .toolbar-item(-550px,-612px);
+    .toolbar-layer {
+        height: 194px;
+        background-position: 0 -222px;
+    }
+}
+
+.toolbar-item-top {
+    .toolbar-item(-674px,-736px);
+}
+
+.toolbar-layer {
+    position: absolute;
+    right: @toolbar-size - 6;
+    bottom: -10px;
+    width: 172px;
+    .opacity(0);
+    .transform-origin(95% 95%);
+    .scale(0.01);
+    .transition(all 1s);
+}
