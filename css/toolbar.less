@@ -1,28 +1,87 @@
-//为了兼容IE
-.opacity(@opacity){
-    @var:@opacity * 100;
-    filter: alpha(opacity=@var);
-    opacity: @opacity;
-}
+////第一种方法：使用背景图片方法
 
-//混合 3 带参数有默认值  
-.toolbar-item(@pos,@hoverPos){
-    background-position: 0 @pos;
-     &:hover {
-            background-position: 0 @hoverPos;
-        } 
-}   
+////混合 3 带参数有默认值
+//.toolbar-item(@pos,@hoverPos) {
+//  background-position: 0 @pos;
+//  &:hover {
+//  background-position: 0 @hoverPos;
+//}
+//}
+//@toolbar-size: 52px;
+//  .toolbar-item,.toolbar-layer {
+//  background: url(../img/toolbar.png) no-repeat;
+//}
+//* {
+//  padding: 0;
+//  margin: 0;
+//}
+//.toolbar {
+//  position: fixed;
+//  left: 50%;
+//  bottom: 5px;
+//  margin-left: - @toolbar-size / 2;
+//}
+//.toolbar-item {
+//  position: relative;
+//  cursor: pointer;
+//  width: @toolbar-size;
+//  height: @toolbar-size;
+//  margin: 10px 0;
+//  display: block;
+//  .transition(background-position 1s);
+//  &:hover {
+//  .toolbar-layer {
+//  .opacity(1);
+//  .scale(1);
+//}
+//}
+//}
+//.toolbar-item-weixin {
+//  .toolbar-item(-798px,-860px);
+//  .toolbar-layer {
+//  height: 212px;
+//  background-position: 0 0;
+//}
+//}
+//.toolbar-item-feedback {
+//  .toolbar-item(-426px,-488px);
+//}
+//.toolbar-item-app {
+//  .toolbar-item(-550px,-612px);
+//  .toolbar-layer {
+//  height: 194px;
+//  background-position: 0 -222px;
+//}
+//}
+//.toolbar-item-top {
+//  .toolbar-item(-674px,-736px);
+//}
+//.toolbar-layer {
+//  position: absolute;
+//  right: @toolbar-size - 6;
+//  bottom: -10px;
+//  width: 172px;
+//  .opacity(0);
+//  .transform-origin(95% 95%);
+//  .scale(0.01);
+//  .transition(all 1s);
+//}
 
+//第二种方法:使用图标字体方法
 @toolbar-size: 52px;
-.toolbar-item,.toolbar-layer{
-    background: url(../img/toolbar.png) no-repeat;
+.toolbar-item,.toobar-btn,.toolbar-icon,.toolbar-text{
+    width: @toolbar-size;
+    height: @toolbar-size;
 }
-* {
-    padding: 0;
-    margin: 0;
+.toolbar-icon,.toolbar-text{
+    position: absolute;
+    left: 0;
+    color: #fff;
+    text-align: center;
+    .transition(top 1s);
 }
 
-.toolbar {
+.toobar {
     position: fixed;
     left: 50%;
     bottom: 5px;
@@ -32,14 +91,15 @@
 .toolbar-item {
     position: relative;
     cursor: pointer;
-    width: @toolbar-size;
-    height: @toolbar-size;
-    /*background: pink;*/
     margin: 10px 0;
     display: block;
-    .transition(background-position 1s);
-    
     &:hover {
+        .toolbar-icon {
+            top: -@toolbar-size;
+        }
+        .toolbar-text {
+            top: 0;
+        }
         .toolbar-layer {
             .opacity(1);
             .scale(1);
@@ -47,32 +107,30 @@
     }
 }
 
-.toolbar-item-weixin {
-    .toolbar-item(-798px,-860px);
-    
-    .toolbar-layer {
-        height: 212px;
-        background-position: 0 0;
-    }
+.toobar-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
 }
 
-.toolbar-item-feedback {
-    .toolbar-item(-426px,-488px);
+.toolbar-icon {
+    top: 0;
+    background: #d0d6d9;
+    font-size: 30px;
+    line-height: @toolbar-size;
 }
 
-.toolbar-item-app {
-    .toolbar-item(-550px,-612px);
-    .toolbar-layer {
-        height: 194px;
-        background-position: 0 -222px;
-    }
-}
-
-.toolbar-item-top {
-    .toolbar-item(-674px,-736px);
+.toolbar-text {
+    top: @toolbar-size;
+    background: #98a1a6;
+    font-size: 12px;
+    padding-top: 12px;
+    line-height: 1.2;
 }
 
 .toolbar-layer {
+    background: url(../img/toolbar.png) no-repeat;
     position: absolute;
     right: @toolbar-size - 6;
     bottom: -10px;
@@ -81,4 +139,14 @@
     .transform-origin(95% 95%);
     .scale(0.01);
     .transition(all 1s);
+}
+
+.toolbar-layer-weixin {
+    height: 212px;
+    background-position: 0 0;
+}
+
+.toolbar-layer-app {
+    height: 212px;
+    background-position: 0 0;
 }

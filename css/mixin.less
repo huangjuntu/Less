@@ -20,3 +20,10 @@
     -moz-transform-origin: @origin;
     transform-origin: @origin;
 }
+
+//为了兼容IE
+.opacity(@opacity){
+    @var:@opacity * 100;
+    filter: alpha(opacity=@var);
+    opacity: @opacity;
+    }
