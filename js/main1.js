@@ -7,11 +7,16 @@ requirejs.config({
 //引入模块
 requirejs(['jquery','backtop'],function($,backtop){
 	
-	new backtop.BackTop($("#backTop"),{
-		mode:'move',//和go
-		pos:100,
-		speed:2000
-		
+//	new backtop.BackTop($("#backTop"),{
+//		mode:'move',//和go
+//		pos:100,
+//		speed:2000
+//		
+//	});
+
+//   插件写法
+	$("#backTop").backtop({
+		mode:'move'
 	});
 	
 	

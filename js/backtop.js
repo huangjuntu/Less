@@ -40,6 +40,16 @@ define(['jquery','scrollTo'], function($,scrollto) {
 			$el.fadeOut();
 		}
 	};
+	
+//	插件写法
+	$.fn.extend({
+		backtop:function(opts){
+			return this.each(function(){
+				new BackTop(this,opts);
+			});
+		}
+	});
+	
 	//	上面就是写好的,如何和外面进行通信?
 	return {
 		BackTop: BackTop
