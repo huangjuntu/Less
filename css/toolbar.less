@@ -1,5 +1,4 @@
 ////第一种方法：使用背景图片方法
-
 ////混合 3 带参数有默认值
 //.toolbar-item(@pos,@hoverPos) {
 //  background-position: 0 @pos;
@@ -66,22 +65,93 @@
 //  .scale(0.01);
 //  .transition(all 1s);
 //}
-
 //第二种方法:使用图标字体方法
-@toolbar-size: 52px;
-.toolbar-item,.toobar-btn,.toolbar-icon,.toolbar-text{
-    width: @toolbar-size;
-    height: @toolbar-size;
-}
-.toolbar-icon,.toolbar-text{
-    position: absolute;
-    left: 0;
-    color: #fff;
-    text-align: center;
-    .transition(top 1s);
-}
+//@toolbar-size: 52px;
+//.toolbar-item,.toobar-btn,.toolbar-icon,.toolbar-text{
+//  width: @toolbar-size;
+//  height: @toolbar-size;
+//}
+//.toolbar-icon,.toolbar-text{
+//  position: absolute;
+//  left: 0;
+//  color: #fff;
+//  text-align: center;
+//  .transition(top 1s);
+//}
+//
+//.toobar {
+//  position: fixed;
+//  left: 50%;
+//  bottom: 5px;
+//  margin-left: - @toolbar-size / 2;
+//}
+//
+//.toolbar-item {
+//  position: relative;
+//  cursor: pointer;
+//  margin: 10px 0;
+//  display: block;
+//  &:hover {
+//      .toolbar-icon {
+//          top: -@toolbar-size;
+//      }
+//      .toolbar-text {
+//          top: 0;
+//      }
+//      .toolbar-layer {
+//          .opacity(1);
+//          .scale(1);
+//      }
+//  }
+//}
+//
+//.toobar-btn {
+//  position: absolute;
+//  top: 0;
+//  left: 0;
+//  overflow: hidden;
+//}
+//
+//.toolbar-icon {
+//  top: 0;
+//  background: #d0d6d9;
+//  font-size: 30px;
+//  line-height: @toolbar-size;
+//}
+//
+//.toolbar-text {
+//  top: @toolbar-size;
+//  background: #98a1a6;
+//  font-size: 12px;
+//  padding-top: 12px;
+//  line-height: 1.2;
+//}
+//
+//.toolbar-layer {
+//  background: url(../img/toolbar.png) no-repeat;
+//  position: absolute;
+//  right: @toolbar-size - 6;
+//  bottom: -10px;
+//  width: 172px;
+//  .opacity(0);
+//  .transform-origin(95% 95%);
+//  .scale(0.01);
+//  .transition(all 1s);
+//}
+//
+//.toolbar-layer-weixin {
+//  height: 212px;
+//  background-position: 0 0;
+//}
+//
+//.toolbar-layer-app {
+//  height: 212px;
+//  background-position: 0 0;
+//}
 
-.toobar {
+//方法三：利用before和after 伪类的方式
+@toolbar-size:52px;
+.toolbar {
     position: fixed;
     left: 50%;
     bottom: 5px;
@@ -90,63 +160,125 @@
 
 .toolbar-item {
     position: relative;
-    cursor: pointer;
-    margin: 10px 0;
     display: block;
+    width: @toolbar-size;
+    height: @toolbar-size;
+    margin: 10px 0;
     &:hover {
-        .toolbar-icon {
-            top: -@toolbar-size;
+        .toolbar-btn {
+            &:before {
+                top:- @toolbar-size
+            }
+            &:after {
+                top:0;
+            }
         }
-        .toolbar-text {
-            top: 0;
-        }
-        .toolbar-layer {
+        &:after{
             .opacity(1);
             .scale(1);
+        }
+        
+    }
+    //  代表二维码
+    &:after {
+        content: "";
+        position: absolute;
+        right: @toolbar-size - 6;
+        bottom: -10px;
+        width: 172px;
+        background: url(../img/toolbar_img.png) no-repeat;
+        .opacity(0);
+        .transform-origin(95% 95%);
+        .scale(0.01);
+        .transition(all 1s);
+    }
+}
+
+.toolbar-item-weixin {
+    &:after {
+        content: "";
+        height: 212px;
+        background-position: 0 0;
+    }
+    .toolbar-btn {
+        &:before {
+            content: "\e63b";
+        }
+        &:after {
+            content: "公众\A账号";
         }
     }
 }
 
-.toobar-btn {
-    position: absolute;
+.toolbar-item-feedback {
+    .toolbar-btn {
+        &:before {
+            content: "\e643";
+        }
+//      &:extend(.icon-yingdaicon04);
+        &:after {
+            content: "意见\A反馈";
+        }
+    }
+}
+
+.toolbar-item-app {
+    &:after {
+        content: "";
+        height: 194px;
+        background-position: 0 -222px;
+    }
+    .toolbar-btn {
+        &:before {
+            content: "\e606";
+        }
+//      &:extend(.icon-5app);
+        &:after {
+            content: "APP\A下载";
+        }
+    }
+}
+
+.toolbar-item-top {
+    .toolbar-btn {
+        &:before {
+            content: "\ed82";
+        }
+//      &:extend(.icon-verticalaligntop);
+        &:after {
+            content: "返回\A顶部";
+        }
+    }
+}
+
+.toolbar-btn {
+    &,&:before,&:after{
+        width: @toolbar-size;
+        height: @toolbar-size;
+        position: absolute;
+        left: 0;
+    }
+    &:before,&:after{
+         content: "";
+         color: #fff;
+         text-align: center;
+         .transition(top 1s);
+    }
     top: 0;
-    left: 0;
     overflow: hidden;
-}
-
-.toolbar-icon {
-    top: 0;
-    background: #d0d6d9;
-    font-size: 30px;
-    line-height: @toolbar-size;
-}
-
-.toolbar-text {
-    top: @toolbar-size;
-    background: #98a1a6;
-    font-size: 12px;
-    padding-top: 12px;
-    line-height: 1.2;
-}
-
-.toolbar-layer {
-    background: url(../img/toolbar.png) no-repeat;
-    position: absolute;
-    right: @toolbar-size - 6;
-    bottom: -10px;
-    width: 172px;
-    .opacity(0);
-    .transform-origin(95% 95%);
-    .scale(0.01);
-    .transition(all 1s);
-}
-
-.toolbar-layer-weixin {
-    height: 212px;
-    background-position: 0 0;
-}
-
-.toolbar-layer-app {
-    height: 212px;
-    background-position: 0 0;
+    &:extend(.iconfont);//  继承之前的样式
+    &:before {//icon
+        top: 0;
+        line-height: @toolbar-size;
+        background: #d0d6d9;
+        font-size: 30px;
+    }
+    &:after {//text
+        top: @toolbar-size;
+        background: #98a1a6;
+        font-size: 12px;
+        line-height: 1.2;
+        padding-top: 12px;
+        white-space: pre;
+    }
 }
