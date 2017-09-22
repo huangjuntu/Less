@@ -5,34 +5,50 @@ requirejs.config({
 	}
 });
 //引入模块
-requirejs(['jquery','scrollto'],function($,scrollto){
-	var scroll = new scrollto.ScrollTo({//	实例化并构造函数
-		dest:0,
-		speed:800
+requirejs(['jquery','backtop'],function($,backtop){
+	
+	new backtop.BackTop($("#backTop"),{
+		mode:'move',//和go
+		pos:100,
+		speed:2000
+		
 	});
 	
-//	$("#backTop").on("click",scroll.move);这个不对，需要加上新属性$.proxy，人为调整this指向，下面
-	$("#backTop").on("click",$.proxy(scroll.move,scroll));//两个参数表示：方法,this的指向
-//	$("#backTop").on("click",$.proxy(scroll.go,scroll));
-
-
-
-
-//	监听滚动事件
-    $(window).on("scroll",function(){
-    	checkPosition($(window).height());
-    });
-    
-    checkPosition($(window).height());//加载的时候执行一下这个函数
-    
-    
-    function checkPosition(pos){
-    	if($(window).scrollTop() > pos){//这里有个参数，所以要写个匿名函数，进行构造
-    		$("#backTop").fadeIn();
-    	}else{
-    		$("#backTop").fadeOut();
-    	}
-    }
+	
+	
+	
+	
+	
+	
+	
+	
+//	var scroll = new scrollto.ScrollTo({//	实例化并构造函数
+//		dest:0,
+//		speed:800
+//	});
+//	
+////	$("#backTop").on("click",scroll.move);这个不对，需要加上新属性$.proxy，人为调整this指向，下面
+//	$("#backTop").on("click",$.proxy(scroll.move,scroll));//两个参数表示：方法,this的指向
+////	$("#backTop").on("click",$.proxy(scroll.go,scroll));
+//
+//
+//
+//
+////	监听滚动事件
+//  $(window).on("scroll",function(){
+//  	checkPosition($(window).height());
+//  });
+//  
+//  checkPosition($(window).height());//加载的时候执行一下这个函数
+//  
+//  
+//  function checkPosition(pos){
+//  	if($(window).scrollTop() > pos){//这里有个参数，所以要写个匿名函数，进行构造
+//  		$("#backTop").fadeIn();
+//  	}else{
+//  		$("#backTop").fadeOut();
+//  	}
+//  }
 
 
 
