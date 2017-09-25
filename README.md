@@ -4,6 +4,7 @@ Less介绍
 Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
 Less 可以运行在 Node 或浏览器端。
 Sass和css 异同
+
 相同点：
 · 混入(Mixins)——class中的class；
 · 参数混入——可以传递参数的class，就像函数一样；
