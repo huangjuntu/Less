@@ -1,8 +1,4 @@
-# Less
-用Less的方法编译--侧栏工具条
-
 侧栏工具条开发整理
-
 Less
 Less介绍
 Less 是一门 CSS 预处理语言，它扩展了 CSS 语言，增加了变量、Mixin、函数等特性，使 CSS 更易维护和扩展。
@@ -38,6 +34,7 @@ Hbuilder开启less自动编译的方法
 <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.5.3/less.min.js"></script>
 或者：
 <!--<link rel="stylesheet" href="css/index1.css" />--> 
+
 
 index1.less 写完之后，引入，没有翻译成 .css
 注意less样式文件一定要在引入less.js前先引入。 
@@ -701,5 +698,4 @@ Hubilder快捷键学习
 . Toobar, 按下tab键	<div class="toobar"></div>
 a[href="javascript:;"].toolbar-item,按下tab键	<a href="javascript:;" class="toolbar-item"></a>
 p{111}*100	100个p标签，内容为111
-
 
