@@ -19,7 +19,7 @@ define(['jquery','scrollTo'], function($,scrollto) {
 		}
 		
 		$(window).on('scroll',$.proxy(this._checkPosition,this)); //下划线的目的是:仅供内部使用
-
+		this._checkPosition();
 	}
 	BackTop.DEFAULTS = {
 		mode:'move',
