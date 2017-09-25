@@ -1,6 +1,6 @@
 侧栏工具条开发整理
 &nbsp;
-	<a href="#_Toc493868075">Less 1</a>
+<a href="#_Toc493868075">Less 1</a>
 <a href="#_Toc493868076">Less介绍. 1</a>
 <a href="#_Toc493868077">Sass和css 异同. 1</a>
 <a href="#_Toc493868078">Less用法及koala使用. 1</a>
@@ -12,8 +12,7 @@
 <a href="#_Toc493868084">变量：. 3</a>
 <a href="#_Toc493868085">混用：. 3</a>
 <a href="#_Toc493868086">嵌套规则：. 3</a>
-<a href="#_Toc493868087">函数 &amp;
-	运算：. 4</a>
+<a href="#_Toc493868087">函数 &amp;运算：. 4</a>
 <a href="#_Toc493868088">混合-带参数有默认值. 4</a>
 <a href="#_Toc493868089">继承：. 5</a>
 <a href="#_Toc493868090">RequireJS 5</a>
