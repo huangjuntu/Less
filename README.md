@@ -6,14 +6,14 @@ Less 可以运行在 Node 或浏览器端。
 Sass和css 异同
 
 相同点：
-· 混入(Mixins)——class中的class；
-· 参数混入——可以传递参数的class，就像函数一样；
-· 嵌套规则——Class中嵌套class，从而减少重复的代码；
-· 运算——CSS中用上数学；
-· 颜色功能——可以编辑颜色；
-· 名字空间(namespace)——分组样式，从而可以被调用；
-· 作用域——局部修改样式；
-· JavaScript 赋值——在CSS中使用JavaScript表达式赋值
+· 混入(Mixins)——class中的class；<br/>
+· 参数混入——可以传递参数的class，就像函数一样；<br/>
+· 嵌套规则——Class中嵌套class，从而减少重复的代码；<br/>
+· 运算——CSS中用上数学；<br/>
+· 颜色功能——可以编辑颜色；<br/>
+· 名字空间(namespace)——分组样式，从而可以被调用；<br/>
+· 作用域——局部修改样式；<br/>
+· JavaScript 赋值——在CSS中使用JavaScript表达式赋值<br/>
 
 不同点：
 实现方式，LESS是基于JavaScript，所以，是在客户端处理的。Sass是基于Ruby的，然后是在服务器端处理的。
