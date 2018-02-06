@@ -19,14 +19,6 @@ requirejs(['jquery','backtop'],function($,backtop){
 		mode:'move'
 	});
 	
-	
-	
-	
-	
-	
-	
-	
-	
 //	var scroll = new scrollto.ScrollTo({//	实例化并构造函数
 //		dest:0,
 //		speed:800
